@@ -21,7 +21,7 @@ body {
     font-weight: 600;
     margin: 0;
     padding: 1em;
-    background: url('images/background.jpg') center no-repeat;
+    background: url('images/brno.jpg') center no-repeat;
     background-size: cover;
 }
 
@@ -37,8 +37,7 @@ h1 {
     width: 350px;
     overflow: hidden;
     border-radius: 10px;
-    border: 5px solid rgba(0, 0, 0, 0.5);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 8px 61px 0px rgba(0, 0, 0, 0.75);
 }
 
 .weather__current {
@@ -156,8 +155,7 @@ h1 {
     margin: 10px auto;
     display: flex;
     border-radius: 10px;
-    border: 5px solid rgba(0, 0, 0, 0.5);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 8px 61px 0px rgba(0, 0, 0, 0.75);
 }
 
 .button {
