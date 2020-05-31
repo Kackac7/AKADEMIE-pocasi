@@ -61,7 +61,7 @@ function pad(num) {
     return ("0" + num).slice(-2);
 }
 
-function getTimeFromDate(timestamp, timezone) {
+function zobrazCas(timestamp, timezone) {
     let date = new Date((timestamp + timezone) * 1000);
     let hours = date.getHours();
     let minutes = date.getMinutes();
@@ -78,8 +78,7 @@ function zobrazPocasi(data) {
 
     let novaIkona = getWeatherIcon(data.weather[0].id, data.weather[0].icon);
     let ikonaElement = document.querySelector('#ikona');
-    console.log(data.weather[0].id);
-    console.log(data.weather[0].icon);
+
 
     ikonaElement.innerHTML = novaIkona;
 
@@ -87,13 +86,13 @@ function zobrazPocasi(data) {
     document.getElementById('vitr').innerHTML = data.wind.speed;
     document.getElementById('popis').innerHTML = data.weather[0].description;
     document.getElementById('vlhkost').innerHTML = data.main.humidity;
-    document.getElementById('vychod').innerHTML = getTimeFromDate(data.sys.sunrise, timezone);
-    document.getElementById('zapad').innerHTML = getTimeFromDate(data.sys.sunset, timezone);
+    document.getElementById('vychod').innerHTML = zobrazCas(data.sys.sunrise, timezone);
+    document.getElementById('zapad').innerHTML = zobrazCas(data.sys.sunset, timezone);
     document.getElementById('mesto').innerHTML = data.name;
 
 }
 
-function getDateFromDate(timestamp) {
+function zobrazDatum(timestamp) {
     let date = new Date(timestamp * 1000);
     let day = date.getDate();
     let month = date.getMonth() + 1;
@@ -106,7 +105,7 @@ function predpoved(data) {
     for (let i = 1; i <= 4; i++) {
 
         document.querySelector(".predpoved" + i + '>.forecast__temp').innerHTML = Math.round(data.daily[i].temp.day) + '°C';
-        document.querySelector(".predpoved" + i + '>.forecast__day').innerHTML = getDateFromDate(data.daily[i].dt);
+        document.querySelector(".predpoved" + i + '>.forecast__day').innerHTML = zobrazDatum(data.daily[i].dt);
 
         let novaIkona = getWeatherIcon(data.daily[i].weather[0].id, data.daily[i].weather[0].icon);
         let ikonaElement = document.querySelector(".predpoved" + i + '>.forecast__icon');
